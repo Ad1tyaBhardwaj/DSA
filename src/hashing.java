@@ -1,25 +1,35 @@
-import java.util.HashSet;
+import java.util.*;
 
 public class hashing {
-
-    public static int ZeroSumSubarray(int arr[], int n){
-        HashSet<Integer> h = new HashSet<>();
-        int prefix_sum = 0;
-        h.add(0);
-        for(int i=0; i<n;i++){
-            prefix_sum += arr[i];
-            if(h.contains(prefix_sum) == true){
-                return 1;
-            }
-            h.add(prefix_sum);
-        }
-        return 0;
-    }
-
     public static void main(String[] args) {
-        int arr[] = new int[]{3,4,3,-1,1};
-        int n = arr.length;
+        HashSet<Integer> set = new HashSet<>();
 
-        System.out.println(ZeroSumSubarray(arr, n));
+        //INSERT
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(1); //It won't be added again
+
+        //SEARCH
+        if(set.contains(1)){
+            System.out.println("Set contains 1");
+        }
+
+        if(!set.contains(6)){
+            System.out.println("SET don't contains 6");
+        }
+
+        //DELETE
+        set.remove(1);
+        if(!set.contains(1)){
+            System.out.println("Does not contains 1");
+        }
+
+        //SIZE
+        int size = set.size();
+        System.out.println("Size of set is: "+size);
+
+        //ITERATOR
+
     }
 }
