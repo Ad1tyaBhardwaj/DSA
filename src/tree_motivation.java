@@ -173,6 +173,8 @@ public class tree_motivation {
         System.out.println();
         System.out.println(isCsum(root));
         System.out.println(isCsum(root2));
+
+        List<List<Integer>> soln = new ArrayList<>();
     }
 }
 
