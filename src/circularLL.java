@@ -121,7 +121,4 @@ class circularLL{
         cl.deleteK(2);
         cl.printCL();
     }
-
-
-
 }

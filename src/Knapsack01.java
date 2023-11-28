@@ -7,9 +7,7 @@ public class Knapsack01 {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> emp = new ArrayList<>();
-        emp.add(3);
-        emp.add(4);
-        emp.get(0);
+        System.out.println(true || false);
+
     }
 }
