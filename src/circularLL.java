@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class circularLL{
     Node head;
     class Node{
@@ -112,6 +114,8 @@ class circularLL{
 
     public static void main(String[] args) {
         circularLL cl = new circularLL();
+        ArrayList<Integer> arr = new ArrayList<>();
+        
         cl.addFirst(3);
         cl.addLast(4);
         cl.makeCL();
