@@ -10,7 +10,7 @@ public class tempo {
             set.add((i));
         }
         String s = "lol";
-        Stack<Object>
+
 
         System.out.println((14/50)*100);
 
