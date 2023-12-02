@@ -16,66 +16,68 @@ public class l2 {
     }
 
     public static void CreateGraph(ArrayList<Edge> graph[], int V){
-        for(int i=0; i<V;i++){
-            graph[i] = new ArrayList<>();
+        for(int i=0;i<V;i++){
+            graph[i] = new ArrayList<Edge>();
         }
 
         graph[0].add(new Edge(0,1,2));
         graph[0].add(new Edge(0,2,4));
 
-        graph[1].add(new Edge(1,3,7));
         graph[1].add(new Edge(1,2,1));
+        graph[1].add(new Edge(1,3,7));
 
         graph[2].add(new Edge(2,4,3));
 
         graph[3].add(new Edge(3,5,1));
 
         graph[4].add(new Edge(4,3,2));
-        graph[5].add(new Edge(4,5,5));
+        graph[4].add(new Edge(4,5,5));
     }
 
     static class pair implements Comparable<pair>{
-        int node;
+        int Node;
         int dist;
-        pair(int n, int d){
-            this.node = n;
-            this.dist = d;
+        pair(int Node, int dist){
+            this.Node = Node;
+            this.dist = dist;
         }
+
         @Override
         public int compareTo(pair p2){
             return this.dist - p2.dist;
         }
+
     }
 
     public static void dijkstra(ArrayList<Edge> graph[], int src, int V){
-        PriorityQueue<pair> pq = new PriorityQueue<>();
         int dist[] = new int[V];
-        for(int i=0; i<V;i++){
+        PriorityQueue<pair> pq = new PriorityQueue<>();
+        boolean vis[] = new boolean[V];
+        for(int i=0;i<V;i++){
             if(i != src){
                 dist[i] = Integer.MAX_VALUE;
             }
         }
-        pq.add(new pair(src,0));
-        boolean vis[] = new boolean[V];
+        pq.add(new pair(0,0));
 
-        while (!pq.isEmpty()){
+        while(!pq.isEmpty()){
             pair curr = pq.remove();
-            if(!vis[curr.node]){
-                vis[curr.node] = true;
-                for(int i=0; i<graph[curr.node].size();i++){
-                    Edge e = graph[curr.node].get(i);
+            if(!vis[curr.Node]){
+                vis[curr.Node] = true;
+                for(int i=0;i<graph[curr.Node].size();i++){
+                    Edge e = graph[curr.Node].get(i);
                     int u = e.src;
                     int v = e.dest;
                     if(dist[u]+e.wt < dist[v]){
                         dist[v] = dist[u]+e.wt;
-                        pq.add(new pair(v,dist[v]));
+                        pq.add(new pair(v,e.wt));
                     }
                 }
             }
         }
+
         System.out.println(Arrays.toString(dist));
     }
-
 
     public static void main(String[] args) {
         int V = 6;
